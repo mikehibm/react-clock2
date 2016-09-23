@@ -21,7 +21,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rm dist/* && webpack -p",
+    "clean": "rm -rf dist && mkdir dist && mkdir dist/lib",
+    "copy": "./copy_libs.sh",
+    "build": "npm run clean && npm run copy && webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
