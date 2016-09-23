@@ -20,7 +20,7 @@
     "webpack-dev-server": "^1.16.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline",
+    "start": "webpack-dev-server",
     "build": "rm dist/* && webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

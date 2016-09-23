@@ -10,6 +10,7 @@ module.exports = {
 
     // Configuration for dev server
     devServer: {
+        inline: true,
         contentBase: 'dist',
         port: 8080
     },
