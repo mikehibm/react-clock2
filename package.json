@@ -24,7 +24,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist",
-    "copy":  "node copy_libs.js",
+    "copy":  "node copy_static.js",
     "build": "npm run clean && npm run copy && webpack -p",
     "test":  "echo \"Error: no test specified\" && exit 1"
   },
