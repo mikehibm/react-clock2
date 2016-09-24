@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Clock } from './Clock.tsx';
+import { Clock } from './Clock';
 
 export class App extends React.Component<any, any>{
   render(){
