@@ -5,6 +5,7 @@ export class Clock extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
+
     const now = new Date();
     this.state = { now };
 
@@ -15,8 +16,9 @@ export class Clock extends React.Component<any, any> {
   }
 
   render() {
+    const { format = 'YYYY/MM/DD HH:mm:ss', tz = 0 } = this.props;
     const { now } = this.state;
-    const nowStr = moment(now).format('YYYY/MM/DD HH:mm:ss');
+    const nowStr = moment(now).utc().add(tz, 'hours').format(format);
 
     return (
       <div className="clock">{nowStr}</div>
