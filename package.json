@@ -24,8 +24,9 @@
   "scripts": {
     "start": "webpack-dev-server",
     "clean": "rimraf dist",
-    "copy":  "node copy_static.js",
-    "build": "npm run clean && npm run copy && webpack -p",
+    "copy":  "node copy.js",
+    "build:d": "npm run clean && npm run copy && webpack -d --config=webpack.config.js",
+    "build:p": "npm run clean && npm run copy && webpack -p --config=webpack.config.js",
     "test":  "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
