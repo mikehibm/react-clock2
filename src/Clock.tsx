@@ -3,25 +3,17 @@ import * as moment from 'moment';
 
 export class Clock extends React.Component<any, any> {
 
-  constructor(props) {
-    super(props);
+    shouldComponentUpdate(nextProps, nextState) {
+        //Update only when seconds change.
+        return this.props.now.getSeconds() !== nextProps.now.getSeconds();
+    }
 
-    const now = new Date();
-    this.state = { now };
+    render() {
+        const { format = 'YYYY/MM/DD HH:mm:ss', tz = 0, now } = this.props;
+        const nowStr = moment(now).utc().add(tz, 'hours').format(format);
 
-    setInterval(() => {
-      const now = new Date();
-      this.setState({ now });
-    }, 300);
-  }
-
-  render() {
-    const { format = 'YYYY/MM/DD HH:mm:ss', tz = 0 } = this.props;
-    const { now } = this.state;
-    const nowStr = moment(now).utc().add(tz, 'hours').format(format);
-
-    return (
-      <div className="clock">{nowStr}</div>
-    );
-  }
+        return (
+            <div className="clock">{nowStr}</div>
+        );
+    }
 }
