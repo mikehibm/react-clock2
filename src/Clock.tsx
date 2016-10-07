@@ -9,11 +9,17 @@ export class Clock extends React.Component<any, any> {
     }
 
     render() {
-        const { format = 'YYYY/MM/DD HH:mm:ss', tz = 0, now } = this.props;
+        const { format = 'YYYY/MM/DD HH:mm:ss', tz = 0, now, onRemove } = this.props;
         const nowStr = moment(now).utc().add(tz, 'hours').format(format);
 
         return (
-            <div className="clock">{nowStr}</div>
+            <div className="clock">
+                {nowStr} <a href='#' onClick={onRemove}>Remove</a>
+            </div>
         );
+    }
+
+    handleRemove() {
+
     }
 }

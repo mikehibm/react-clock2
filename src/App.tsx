@@ -26,7 +26,8 @@ export class App extends React.Component<any, any>{
     render() {
         const { now, data } = this.state;
         const clocks = data.map((p, ix) =>
-            <Clock key={ix} {...p} now={now} />);
+            <Clock key={ix} {...p} now={now}
+                onRemove={this.handleRemoveClock.bind(this, ix)} />);
 
         return (
             <div>
@@ -39,5 +40,9 @@ export class App extends React.Component<any, any>{
 
     handleAddClock() {
         this.clockStore.addClock({ format: '[New clock = ]HH:mm:ss', tz: -10 });
+    }
+
+    handleRemoveClock(index) {
+        this.clockStore.removeClock(index);
     }
 }
